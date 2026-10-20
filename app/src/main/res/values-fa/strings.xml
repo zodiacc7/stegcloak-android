@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- هویت اپ — نام پکیج انگلیسی باقی می‌ماند: com.stegcloak.android -->
+    <string name="app_name">استگ‌کلوک</string>
+    <string name="app_name_persian">استگ‌کلوک</string>
+
+    <!-- هدر -->
+    <string name="header_title">استگ‌کلوک</string>
+    <string name="header_subtitle">پنهان‌سازی پیام در متن معمولی • سازگار با StegCloak</string>
+
+    <!-- تغییر زبان -->
+    <string name="lang_switch_label">🌐 English</string>
+    <string name="lang_switch_label_en">🌐 English</string>
+    <string name="lang_current_en">English</string>
+    <string name="lang_current_fa">فارسی</string>
+
+    <!-- تب‌ها -->
+    <string name="tab_hide">🫥  پنهان‌سازی</string>
+    <string name="tab_reveal">🔍  بازیابی</string>
+
+    <!-- پنل پنهان‌سازی -->
+    <string name="label_secret">پیام مخفی</string>
+    <string name="hint_secret">متنی که می‌خواهید مخفی بماند…</string>
+    <string name="label_cover">متن پوششی (حداقل دو کلمه)</string>
+    <string name="hint_cover">یک متن معمولی و بی‌خطر…</string>
+    <string name="btn_random_cover">🎲  متن پوششی تصادفی</string>
+    <string name="label_security">امنیت</string>
+    <string name="hint_password_hide">رمز عبور (اختیاری)</string>
+    <string name="hint_password_reveal">اگر پیام رمز دارد، اینجا وارد کنید</string>
+    <string name="label_password">رمز عبور</string>
+    <string name="check_encrypt">رمزنگاری پیام</string>
+    <string name="check_hmac">بررسی صحت پیام با HMAC (تشخیص رمز اشتباه)</string>
+    <string name="note_empty_password">اگر رمز عبور خالی باشد، پیام همچنان رمزنگاری می‌شود (با کلید خالی) — برای امنیت واقعی رمز بگذارید.</string>
+
+    <string name="error_secret_empty">پیام مخفی خالی است.</string>
+    <string name="error_cover_empty">متن پوششی خالی است.</string>
+    <string name="error_cover_two_words">متن پوششی باید حداقل دو کلمه داشته باشد.</string>
+    <string name="error_generic">خطا: %1$s</string>
+
+    <string name="btn_hide">🫥  پنهان کردن پیام</string>
+    <string name="label_result_hidden">متن حاصل — ظاهرش کاملاً معمولی است ✨</string>
+    <string name="btn_copy">📋  کپی</string>
+    <string name="btn_share">📤  اشتراک‌گذاری</string>
+    <string name="toast_copied_clipboard">نتیجه در کلیپ‌بورد کپی شد ✅</string>
+    <string name="toast_copied_short">کپی شد 📋</string>
+
+    <string name="info_embedded">%1$d کاراکتر نامرئی (به‌همراه %2$s) داخل متن جاسازی شد — کافی است آن را کپی و برای گیرنده بفرستید.</string>
+    <string name="method_enc_hmac">رمزنگاری AES-256 + HMAC</string>
+    <string name="method_enc">رمزنگاری AES-256</string>
+    <string name="method_plain">بدون رمزنگاری</string>
+
+    <!-- پنل بازیابی -->
+    <string name="label_concealed">متن حاوی پیام مخفی</string>
+    <string name="hint_concealed">متنی که برایتان فرستاده‌اند را اینجا الصاق کنید…</string>
+    <string name="btn_paste_clipboard">📥  الصاق از کلیپ‌بورد</string>
+    <string name="error_concealed_empty">متنی برای بازیابی وارد نشده است.</string>
+    <string name="error_no_hidden">هیچ پیام مخفی StegCloak در این متن پیدا نشد — مطمئن شوید متن را کامل و دست‌نخورده کپی کرده‌اید.</string>
+    <string name="error_password_required">این پیام رمزنگاری شده است — رمز عبور را وارد کنید.</string>
+    <string name="btn_reveal">🔍  بازیابی پیام</string>
+    <string name="label_revealed_success">پیام بازیابی شد 🎉</string>
+    <string name="error_wrong_password_hmac">رمز عبور اشتباه است یا متن دست‌کاری شده.</string>
+    <string name="error_not_detected">پیام مخفی پیدا نشد — متن ناقص کپی شده است.</string>
+    <string name="error_reveal_generic">بازیابی ناموفق بود — رمز یا متن را بررسی کنید.</string>
+
+    <string name="share_chooser">اشتراک‌گذاری</string>
+
+    <string name="footer_text">خروجی این اپ با ابزار اصلی StegCloak (وب و CLI) کاملاً سازگار است.\nداده‌ها فقط روی دستگاه شما پردازش می‌شوند — بدون اینترنت، بدون سرور.</string>
+
+    <string-array name="sample_covers">
+        <item>سلام! دیروز یه رستوران جدید رفتیم، غذاش فوق‌العاده بود. حتماً یه بار برو امتحان کن.</item>
+        <item>امروز هوا خیلی خوبه! بریم یه دور تو پارک قدم بزنیم. من دو ساعت دیگه آماده‌ام.</item>
+        <item>Hey! Did you watch the game last night? It was absolutely incredible, everyone was talking about it today.</item>
+        <item>Just finished reading that book you recommended. Really enjoyed every single chapter of it, thanks a lot!</item>
+        <item>امروز کلاس ساعت چهار شروع میشه، یادت نره جزوه‌ات رو بیاری.</item>
+        <item>Loved the photos from your trip! The mountains looked amazing. We should plan a trip together soon.</item>
+    </string-array>
+
+    <string name="cd_show_password">نمایش رمز</string>
+    <string name="cd_hide_password">مخفی کردن رمز</string>
+
+</resources>
