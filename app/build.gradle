@@ -4,22 +4,28 @@ plugins {
 
 android {
     namespace 'com.stegcloak.android'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         // Package name stays English as required
         applicationId "com.stegcloak.android"
         minSdk 21
-        targetSdk 33
-        versionCode 2
-        versionName "1.1"
+        targetSdk 34
+        versionCode 3
+        versionName "1.1.1"
         // Keep both languages; don't let aapt strip translations
         resConfigs "en", "fa"
     }
 
     buildTypes {
+        debug {
+            debuggable true
+        }
         release {
+            // Re-use debug keystore so APK is installable (Play Store needs its own release key)
+            signingConfig signingConfigs.debug
             minifyEnabled false
+            debuggable false
         }
     }
 
