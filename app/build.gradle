@@ -7,11 +7,14 @@ android {
     compileSdk 33
 
     defaultConfig {
+        // Package name stays English as required
         applicationId "com.stegcloak.android"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
+        // Keep both languages; don't let aapt strip translations
+        resConfigs "en", "fa"
     }
 
     buildTypes {
@@ -24,4 +27,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
+    // localeConfig is provided manually in res/xml/locales_config.xml
+    // no auto-generation needed
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App identity (package name stays English: com.stegcloak.android) -->
+    <string name="app_name">StegCloak</string>
+    <string name="app_name_persian">استگ‌کلوک</string>
+
+    <!-- Header -->
+    <string name="header_title">StegCloak</string>
+    <string name="header_subtitle">Hide encrypted messages inside ordinary text • StegCloak compatible</string>
+
+    <!-- Language switcher -->
+    <string name="lang_switch_label">🌐 فارسی</string>
+    <string name="lang_switch_label_en">🌐 English</string>
+    <string name="lang_current_en">English</string>
+    <string name="lang_current_fa">فارسی</string>
+
+    <!-- Tabs -->
+    <string name="tab_hide">🫥  Hide</string>
+    <string name="tab_reveal">🔍  Reveal</string>
+
+    <!-- Hide panel -->
+    <string name="label_secret">Secret message</string>
+    <string name="hint_secret">Text you want to keep hidden…</string>
+    <string name="label_cover">Cover text (at least two words)</string>
+    <string name="hint_cover">An ordinary, harmless text…</string>
+    <string name="btn_random_cover">🎲  Random cover text</string>
+    <string name="label_security">Security</string>
+    <string name="hint_password_hide">Password (optional)</string>
+    <string name="hint_password_reveal">If the message has a password, enter it here</string>
+    <string name="label_password">Password</string>
+    <string name="check_encrypt">Encrypt message</string>
+    <string name="check_hmac">Verify integrity with HMAC (detect wrong password)</string>
+    <string name="note_empty_password">If password is empty, the message is still encrypted (with an empty key) — use a real password for proper security.</string>
+
+    <string name="error_secret_empty">Secret message is empty.</string>
+    <string name="error_cover_empty">Cover text is empty.</string>
+    <string name="error_cover_two_words">Cover text must contain at least two words.</string>
+    <string name="error_generic">Error: %1$s</string>
+
+    <string name="btn_hide">🫥  Hide message</string>
+    <string name="label_result_hidden">Result — looks perfectly normal ✨</string>
+    <string name="btn_copy">📋  Copy</string>
+    <string name="btn_share">📤  Share</string>
+    <string name="toast_copied_clipboard">Result copied to clipboard ✅</string>
+    <string name="toast_copied_short">Copied 📋</string>
+
+    <!-- Info line: %1$d = count, %2$s = method name -->
+    <string name="info_embedded">%1$d invisible characters embedded (%2$s) — just copy and send it to the recipient.</string>
+    <string name="method_enc_hmac">AES-256 + HMAC encryption</string>
+    <string name="method_enc">AES-256 encryption</string>
+    <string name="method_plain">no encryption</string>
+
+    <!-- Reveal panel -->
+    <string name="label_concealed">Text containing hidden message</string>
+    <string name="hint_concealed">Paste the text you received here…</string>
+    <string name="btn_paste_clipboard">📥  Paste from clipboard</string>
+    <string name="error_concealed_empty">No text to reveal.</string>
+    <string name="error_no_hidden">No StegCloak hidden message found in this text — make sure you copied it completely and unchanged.</string>
+    <string name="error_password_required">This message is encrypted — please enter the password.</string>
+    <string name="btn_reveal">🔍  Reveal message</string>
+    <string name="label_revealed_success">Message recovered 🎉</string>
+    <string name="error_wrong_password_hmac">Wrong password or text has been tampered with.</string>
+    <string name="error_not_detected">Hidden message not found — text may be incompletely copied.</string>
+    <string name="error_reveal_generic">Reveal failed — check password or text.</string>
+
+    <string name="share_chooser">Share via</string>
+
+    <string name="footer_text">Output of this app is fully compatible with the original StegCloak (web &amp; CLI).\nData is processed only on your device — no internet, no server.</string>
+
+    <!-- Sample covers -->
+    <string-array name="sample_covers">
+        <item>Hey! Did you watch the game last night? It was absolutely incredible, everyone was talking about it today.</item>
+        <item>Just finished reading that book you recommended. Really enjoyed every single chapter of it, thanks a lot!</item>
+        <item>Meeting rescheduled to Thursday afternoon, please update your calendars and let everyone know.</item>
+        <item>Loved the photos from your trip! The mountains looked amazing. We should plan a trip together soon.</item>
+        <item>Today\'s weather is perfect! Let\'s go for a walk in the park. I\'ll be ready in two hours.</item>
+        <item>The new cafe downtown has fantastic coffee — you should definitely try it sometime.</item>
+    </string-array>
+
+    <!-- Content descriptions for eye button -->
+    <string name="cd_show_password">Show password</string>
+    <string name="cd_hide_password">Hide password</string>
+
+</resources>
