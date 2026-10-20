@@ -1,0 +1,1 @@
+A long secret with many repeated characters to exercise the huffman stage of the codec
