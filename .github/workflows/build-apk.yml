@@ -47,26 +47,29 @@ jobs:
           mkdir -p $HOME/.android
           touch $HOME/.android/repositories.cfg
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
-          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" --sdk_root=$ANDROID_HOME
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0" --sdk_root=$ANDROID_HOME
           ls -la $ANDROID_HOME/platforms/ || true
 
-      - name: Build Debug APK
+      - name: Build Debug & Release APKs
         run: |
           echo "sdk.dir=$HOME/android-sdk" > local.properties
-          echo "contents local.properties:"; cat local.properties
-          ls -la $HOME/android-sdk/platforms/ || ls -la $ANDROID_HOME/platforms/ || true
+          cat local.properties
           gradle assembleDebug --stacktrace
+          gradle assembleRelease --stacktrace
+          ls -lh app/build/outputs/apk/*/*.apk
 
-      - name: Upload APK
+      - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
-          name: StegCloak-v1.1-debug
-          path: app/build/outputs/apk/debug/*.apk
+          name: StegCloak-APKs
+          path: app/build/outputs/apk/**/*.apk
           if-no-files-found: warn
 
-      - name: Attach APK to Release (on tag)
+      - name: Attach APKs to Release (on tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: app/build/outputs/apk/debug/*.apk
+          files: |
+            app/build/outputs/apk/debug/*.apk
+            app/build/outputs/apk/release/*.apk
           generate_release_notes: false
