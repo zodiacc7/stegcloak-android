@@ -23,10 +23,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.5'
+
       - name: Build Debug APK
-        run: |
-          chmod +x ./gradlew 2>/dev/null || echo "using gradle wrapper not present, using system gradle"
-          if [ -f ./gradlew ]; then ./gradlew assembleDebug; else gradle assembleDebug; fi
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -35,10 +38,10 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: warn
 
-      # Auto-release on tag
-      - name: Create Release (on tag)
+      # Auto-attach APK to existing release on tag
+      - name: Attach APK to Release (on tag)
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
           files: app/build/outputs/apk/debug/*.apk
-          generate_release_notes: true
+          generate_release_notes: false
