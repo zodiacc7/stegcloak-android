@@ -27,31 +27,31 @@ jobs:
 
       - name: Install Android SDK
         run: |
+          set -x
           sudo apt-get update -qq
           sudo apt-get install -y -qq wget unzip
           export ANDROID_HOME=$HOME/android-sdk
+          export ANDROID_SDK_ROOT=$ANDROID_HOME
           mkdir -p $ANDROID_HOME/cmdline-tools
           wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdline-tools.zip
-          unzip -q /tmp/cmdline-tools.zip -d /tmp
-          mkdir -p $ANDROID_HOME/cmdline-tools/latest
-          mv /tmp/cmdline-tools/* $ANDROID_HOME/cmdline-tools/latest/ 2>/dev/null || mv /tmp/cmdline-tools $ANDROID_HOME/cmdline-tools/latest
-          # handle nested folder case
-          if [ -d "$ANDROID_HOME/cmdline-tools/latest/cmdline-tools" ]; then
-            mv $ANDROID_HOME/cmdline-tools/latest/cmdline-tools/* $ANDROID_HOME/cmdline-tools/latest/
-          fi
+          unzip -q /tmp/cmdline-tools.zip -d $HOME/android-sdk/cmdline-tools
+          mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
+          ls -la $ANDROID_HOME/cmdline-tools/latest/bin/
           echo "ANDROID_HOME=$ANDROID_HOME" >> $GITHUB_ENV
           echo "ANDROID_SDK_ROOT=$ANDROID_HOME" >> $GITHUB_ENV
           echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
           echo "$ANDROID_HOME/platform-tools" >> $GITHUB_PATH
           mkdir -p $HOME/.android
           touch $HOME/.android/repositories.cfg
-          yes | sdkmanager --licenses > /dev/null || true
-          sdkmanager --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" --sdk_root=$ANDROID_HOME
-          echo "SDK installed"
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "platform-tools" "platforms;android-33" "build-tools;33.0.2" --sdk_root=$ANDROID_HOME
+          ls -la $ANDROID_HOME/platforms/ || true
 
       - name: Build Debug APK
         run: |
           echo "sdk.dir=$HOME/android-sdk" > local.properties
+          echo "contents local.properties:"; cat local.properties
+          ls -la $HOME/android-sdk/platforms/ || ls -la $ANDROID_HOME/platforms/ || true
           gradle assembleDebug --stacktrace
 
       - name: Upload APK
